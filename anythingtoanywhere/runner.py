@@ -18,6 +18,8 @@ def guess_source_kwargs(source, path):
         return {"source_s3_uri": path}
     elif source == types.DROPBOX:
         return {"source_dropbox_uri": path}
+    elif source == types.HTTP or source == types.HTTPS:
+        return {"source_url": path}
     elif source == types.LOCAL_FILESYSTEM:
         return {"source_file_path": path}
     else:
@@ -47,5 +49,6 @@ def copy(source, destination, **kwargs):
     kwargs.update(from_options)
     kwargs.update(to_options)
 
+    # Run the transfer!
     transfer_operation = GenericDataTransfer(from_where, to_where, **kwargs)
     transfer_operation.execute()

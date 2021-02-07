@@ -1,3 +1,5 @@
 S3 = "s3"
 LOCAL_FILESYSTEM = "LOCAL_FILESYSTEM"
 DROPBOX = "dropbox"
+HTTP = "http"
+HTTPS = "https"
