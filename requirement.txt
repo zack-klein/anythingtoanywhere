@@ -1,5 +1,8 @@
 boto3
 dropbox
 faker
+pandas
+psycopg2-binary
 requests
+sqlalchemy
 python-dotenv

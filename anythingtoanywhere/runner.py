@@ -22,8 +22,8 @@ def guess_source_kwargs(source, path):
         return {"source_url": path}
     elif source == types.LOCAL_FILESYSTEM:
         return {"source_file_path": path}
-    else:
-        return {}
+    else:  # We assume it's sqlalchemy since there are a bunch of options!
+        return {"dest_conn_string": path}
 
 
 def guess_destination_kwargs(source, path):
@@ -33,8 +33,8 @@ def guess_destination_kwargs(source, path):
         return {"dest_dropbox_uri": path}
     elif source == types.LOCAL_FILESYSTEM:
         return {"dest_file_path": path}
-    else:
-        return {}
+    else:  # We assume it's sqlalchemy since there are a bunch of options!
+        return {"dest_conn_string": path}
 
 
 def copy(source, destination, **kwargs):
