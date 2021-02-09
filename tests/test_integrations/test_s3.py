@@ -22,7 +22,9 @@ def random_s3_key():
 
 
 def random_s3_file():
-    expected_content = bytes(FAKE.bs(), "utf-8")
+    expected_content = bytes(
+        FAKE.csv(data_columns=("{{name}}", "{{ipv4}}")), "utf-8"
+    )
     path = random_s3_key()
     bytes_to_s3(expected_content, path)
     return path, expected_content

@@ -33,7 +33,9 @@ def random_dropbox_path():
 
 
 def random_dropbox_file():
-    expected_content = bytes(FAKE.bs(), "utf-8")
+    expected_content = bytes(
+        FAKE.csv(data_columns=("{{name}}", "{{ipv4}}")), "utf-8"
+    )
     path = random_dropbox_path()
     bytes_to_dropbox(expected_content, path, DROPBOX_ACCESS_TOKEN)
     return path, expected_content
