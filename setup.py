@@ -15,7 +15,11 @@ setup(
     author_email="klein.zachary.j@gmail.com",
     description=("Load anything anywhere!."),
     license="MIT",
-    packages=["anythingtoanywhere"],
+    packages=[
+        "anythingtoanywhere",
+        "anythingtoanywhere.destinations",
+        "anythingtoanywhere.sources",
+    ],
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
     use_scm_version=True,
