@@ -52,3 +52,9 @@ def copy(source, destination, **kwargs):
     # Run the transfer!
     transfer_operation = GenericDataTransfer(from_where, to_where, **kwargs)
     transfer_operation.execute()
+
+    # Return some metadata
+    return {
+        "source": transfer_operation._source,
+        "destination": transfer_operation._destination,
+    }
